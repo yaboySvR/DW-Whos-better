@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
 <title>Who's the ___? — Dandy's World Trivia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -428,7 +429,7 @@ function renderCards(q) {
     card.id = `c${i}`;
     card.innerHTML = `
       <div class="card-img-wrap">
-        <img src="${char.img}" alt="${char.name}" loading="lazy">
+        <img src="${char.img}" alt="${char.name}" loading="eager">
       </div>
       <div class="card-footer">
         <div class="card-name">${char.name}</div>
