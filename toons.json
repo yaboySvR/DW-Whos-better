@@ -1,0 +1,528 @@
+{
+  "toons": [
+    {
+      "name": "Blot",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/8/8f/Blot_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 1, "detail": "Chance 25% / Size 50 / Value 1.00 / Speed 1" },
+        "movementSpeed": { "stars": 4, "detail": "Walk 17.5 / Sprint 27.5" },
+        "stamina": { "stars": 5, "detail": "200" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 2, "detail": "0.85" }
+      }
+    },
+    {
+      "name": "Boxten",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/b/b3/Boxten_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 3, "detail": "1.06" }
+      }
+    },
+    {
+      "name": "Brightney",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/9/9e/Brightney_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 4, "detail": "175" },
+        "stealth": { "stars": 1, "detail": "0" },
+        "extractionSpeed": { "stars": 4, "detail": "1.2" }
+      }
+    },
+    {
+      "name": "Brusha",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/1/1b/Brusha_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 4, "detail": "Chance 25% / Size 200 / Value 2.50 / Speed 4" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 2, "detail": "5" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Connie",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/3/30/Connie_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 2, "detail": "Chance 25% / Size 100 / Value 1.50 / Speed 2" },
+        "movementSpeed": { "stars": 1, "detail": "Walk 10 / Sprint 20" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 5, "detail": "20" },
+        "extractionSpeed": { "stars": 4, "detail": "1.2" }
+      }
+    },
+    {
+      "name": "Cosmo",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/9/90/Cosmo_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 1, "detail": "Chance 25% / Size 50 / Value 1.00 / Speed 1" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 4, "detail": "175" },
+        "stealth": { "stars": 4, "detail": "15" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Finn",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/4/44/Finn_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 4, "detail": "Chance 25% / Size 200 / Value 2.50 / Speed 4" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 2, "detail": "125" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Flutter",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/1/12/Flutter_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 2, "detail": "Chance 25% / Size 100 / Value 1.50 / Speed 2" },
+        "movementSpeed": { "stars": 4, "detail": "Walk 17.5 / Sprint 27.5" },
+        "stamina": { "stars": 4, "detail": "175" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 2, "detail": "0.85" }
+      }
+    },
+    {
+      "name": "Gigi",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/9/91/Gigi_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 5, "detail": "Chance 25% / Size 250 / Value 3.00 / Speed 5" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 1, "detail": "100" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Glisten",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/c/c5/Glisten_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 2, "detail": "Chance 25% / Size 100 / Value 1.50 / Speed 2" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 2, "detail": "5" },
+        "extractionSpeed": { "stars": 5, "detail": "1.5" }
+      }
+    },
+    {
+      "name": "Goob",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/a/a9/Goob_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 4, "detail": "Walk 17.5 / Sprint 27.5" },
+        "stamina": { "stars": 4, "detail": "175" },
+        "stealth": { "stars": 2, "detail": "5" },
+        "extractionSpeed": { "stars": 2, "detail": "0.85" }
+      }
+    },
+    {
+      "name": "Looey",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/d/d0/Looey_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 4, "detail": "Chance 25% / Size 200 / Value 2.50 / Speed 4" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25 (scales up at lower health)" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 2, "detail": "5" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Poppy",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/0a/Poppy_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25 (Walk 22.5 / Sprint 37.5 during ability)" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Razzle & Dazzle",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/9/90/Razzle_%26_Dazzle_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 3, "detail": "Odd floors: Walk 20 / Sprint 30 | Even floors: Walk 10 / Sprint 20" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 3, "detail": "Odd floors: 0.75 | Even floors: 1.5" }
+      }
+    },
+    {
+      "name": "Rodger",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/9/98/Rodger_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 2, "detail": "Walk 12.5 / Sprint 22.5" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 4, "detail": "1.2" }
+      }
+    },
+    {
+      "name": "Scraps",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/5/50/Scraps_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 2, "detail": "Chance 25% / Size 100 / Value 1.50 / Speed 2" },
+        "movementSpeed": { "stars": 2, "detail": "Walk 12.5 / Sprint 22.5" },
+        "stamina": { "stars": 5, "detail": "200" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Shrimpo",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/a/a1/Shrimpo_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 1, "detail": "Chance 25% / Size 50 / Value 1.00 / Speed 1" },
+        "movementSpeed": { "stars": 1, "detail": "Walk 10 / Sprint 20" },
+        "stamina": { "stars": 1, "detail": "100" },
+        "stealth": { "stars": 1, "detail": "-99" },
+        "extractionSpeed": { "stars": 1, "detail": "0.75" }
+      },
+      "note": "Challenge toon — only 5 total stars"
+    },
+    {
+      "name": "Squirm",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/8/8c/Squirm_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 2, "detail": "125" },
+        "stealth": { "stars": 2, "detail": "5" },
+        "extractionSpeed": { "stars": 5, "detail": "1.5" }
+      }
+    },
+    {
+      "name": "Teagan",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/8/8f/Teagan_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 4, "detail": "175" },
+        "stealth": { "stars": 2, "detail": "5" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Tisha",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/03/Tisha_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 4, "detail": "Chance 25% / Size 200 / Value 2.50 / Speed 4" },
+        "movementSpeed": { "stars": 4, "detail": "Walk 17.5 / Sprint 27.5" },
+        "stamina": { "stars": 2, "detail": "125" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 2, "detail": "0.85" }
+      }
+    },
+    {
+      "name": "Toodles",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/8/89/Toodles_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 4, "detail": "15" },
+        "extractionSpeed": { "stars": 2, "detail": "0.85" }
+      }
+    },
+    {
+      "name": "Yatta",
+      "category": "regular",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/7/75/Yatta_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 4, "detail": "Walk 17.5 / Sprint 27.5" },
+        "stamina": { "stars": 1, "detail": "100" },
+        "stealth": { "stars": 2, "detail": "5" },
+        "extractionSpeed": { "stars": 5, "detail": "1.5" }
+      }
+    },
+    {
+      "name": "Astro",
+      "fullName": "Astro Novalite",
+      "category": "main",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/9/92/Astro_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 2, "detail": "Chance 25% / Size 100 / Value 1.50 / Speed 2" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 5, "detail": "20" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Bassie",
+      "fullName": "Bassie Bloomington",
+      "category": "main",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/0c/Bassie_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 1, "detail": "Chance 25% / Size 50 / Value 1.00 / Speed 1" },
+        "movementSpeed": { "stars": 5, "detail": "Walk 20 / Sprint 30" },
+        "stamina": { "stars": 4, "detail": "175" },
+        "stealth": { "stars": 4, "detail": "15" },
+        "extractionSpeed": { "stars": 2, "detail": "0.85" }
+      }
+    },
+    {
+      "name": "Bobette",
+      "fullName": "Bobette Carolynne",
+      "category": "main",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/f/f0/Bobette_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 4, "detail": "Chance 25% / Size 200 / Value 2.50 / Speed 4" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 5, "detail": "200" },
+        "stealth": { "stars": 2, "detail": "5" },
+        "extractionSpeed": { "stars": 2, "detail": "0.85" }
+      }
+    },
+    {
+      "name": "Gourdy",
+      "fullName": "Gourdy Holloway",
+      "category": "main",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/c/c1/Gourdy_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 5, "detail": "Chance 25% / Size 250 / Value 3.00 / Speed 5" },
+        "movementSpeed": { "stars": 4, "detail": "Walk 17.5 / Sprint 27.5" },
+        "stamina": { "stars": 1, "detail": "100" },
+        "stealth": { "stars": 1, "detail": "0" },
+        "extractionSpeed": { "stars": 5, "detail": "1.5" }
+      }
+    },
+    {
+      "name": "Pebble",
+      "fullName": "Pebble Dancifer Jr.",
+      "category": "main",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/8/8d/Pebble_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 5, "detail": "Walk 20 / Sprint 30" },
+        "stamina": { "stars": 4, "detail": "175" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 1, "detail": "0.75" }
+      }
+    },
+    {
+      "name": "Shelly",
+      "fullName": "Shelly Fossilian",
+      "category": "main",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/a/a6/Shelly_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 5, "detail": "Chance 25% / Size 250 / Value 3.00 / Speed 5" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 2, "detail": "125" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Sprout",
+      "fullName": "Sprout Seedly",
+      "category": "main",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/06/Sprout_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 2, "detail": "Chance 25% / Size 100 / Value 1.50 / Speed 2" },
+        "movementSpeed": { "stars": 4, "detail": "Walk 17.5 / Sprint 27.5" },
+        "stamina": { "stars": 5, "detail": "200" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 2, "detail": "0.85" }
+      }
+    },
+    {
+      "name": "Vee",
+      "fullName": "Vee Version 1",
+      "category": "main",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/5/53/Vee_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 4, "detail": "Chance 25% / Size 200 / Value 2.50 / Speed 4" },
+        "movementSpeed": { "stars": 2, "detail": "Walk 12.5 / Sprint 22.5" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 2, "detail": "5" },
+        "extractionSpeed": { "stars": 5, "detail": "1.5" }
+      }
+    },
+    {
+      "name": "Cocoa",
+      "category": "event",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/5/51/Cocoa_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 4, "detail": "Walk 17.5 / Sprint 27.5" },
+        "stamina": { "stars": 2, "detail": "125" },
+        "stealth": { "stars": 4, "detail": "15" },
+        "extractionSpeed": { "stars": 2, "detail": "0.85" }
+      }
+    },
+    {
+      "name": "Eggson",
+      "category": "event",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/5/54/Eggson_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Flyte",
+      "category": "event",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/6/62/Flyte_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 2, "detail": "Chance 25% / Size 100 / Value 1.50 / Speed 2" },
+        "movementSpeed": { "stars": 4, "detail": "Walk 17.5 / Sprint 27.5" },
+        "stamina": { "stars": 2, "detail": "125" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 4, "detail": "1.2" }
+      }
+    },
+    {
+      "name": "Eclipse",
+      "category": "event",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/5/55/Eclipse_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 4, "detail": "Walk 17.5 / Sprint 27.5 (Walk 21 / Sprint 33 during Blackout)" },
+        "stamina": { "stars": 3, "detail": "150 (240 during Blackout)" },
+        "stealth": { "stars": 2, "detail": "5" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Ribecca",
+      "category": "event",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/0f/Ribecca_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Soulvester",
+      "category": "event",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/6/6d/Soulvester_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 5, "detail": "Chance 25% / Size 250 / Value 3.00 / Speed 5" },
+        "movementSpeed": { "stars": 1, "detail": "Walk 10 / Sprint 20" },
+        "stamina": { "stars": 1, "detail": "100" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 5, "detail": "1.5" }
+      }
+    },
+    {
+      "name": "Coal",
+      "category": "event",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/02/Coal_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 2, "detail": "Chance 25% / Size 100 / Value 1.50 / Speed 2" },
+        "movementSpeed": { "stars": 4, "detail": "Walk 17.5 / Sprint 27.5" },
+        "stamina": { "stars": 4, "detail": "175" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 2, "detail": "0.85" }
+      }
+    },
+    {
+      "name": "Ginger",
+      "category": "event",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/c/c6/Ginger_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 2, "detail": "Walk 12.5 / Sprint 22.5" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 4, "detail": "15" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Rudie",
+      "category": "event",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/6/64/Rudie_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 3, "detail": "Chance 25% / Size 150 / Value 2.00 / Speed 3" },
+        "movementSpeed": { "stars": 3, "detail": "Walk 15 / Sprint 25" },
+        "stamina": { "stars": 3, "detail": "150" },
+        "stealth": { "stars": 3, "detail": "10" },
+        "extractionSpeed": { "stars": 3, "detail": "1.0" }
+      }
+    },
+    {
+      "name": "Dandy",
+      "fullName": "Dandicus Dancifer",
+      "category": "lethal",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/2/29/Dandy_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 5, "detail": "Chance 25% / Size 250 / Value 3.00 / Speed 5" },
+        "movementSpeed": { "stars": 5, "detail": "Walk 20 / Sprint 30" },
+        "stamina": { "stars": 5, "detail": "200" },
+        "stealth": { "stars": 5, "detail": "20" },
+        "extractionSpeed": { "stars": 5, "detail": "1.5" }
+      },
+      "note": "Lethal toon — 25 total stars (developer/testing)"
+    },
+    {
+      "name": "Dyle",
+      "fullName": "Dyle Timesly",
+      "category": "lethal",
+      "img": "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/e/e2/Dyle_Render.png/revision/latest/scale-to-width-down/268",
+      "stats": {
+        "skillCheck": { "stars": 5, "detail": "Chance 25% / Size 250 / Value 3.00 / Speed 5" },
+        "movementSpeed": { "stars": 5, "detail": "Walk 20 / Sprint 30" },
+        "stamina": { "stars": 5, "detail": "200" },
+        "stealth": { "stars": 5, "detail": "20" },
+        "extractionSpeed": { "stars": 5, "detail": "1.5" }
+      },
+      "note": "Lethal toon — 25 total stars (developer/testing)"
+    }
+  ],
+  "meta": {
+    "totalToons": 41,
+    "categories": {
+      "regular": 22,
+      "main": 8,
+      "event": 9,
+      "lethal": 2
+    },
+    "statKeys": {
+      "skillCheck": "Skill Check — size/speed of the skill check window",
+      "movementSpeed": "Movement Speed — walk and sprint velocity",
+      "stamina": "Stamina — total stamina pool",
+      "stealth": "Stealth — detection range modifier (higher = harder to detect)",
+      "extractionSpeed": "Extraction Speed — machine extraction rate"
+    },
+    "starRange": "1–5 for regular/event, 1–5 (total 16) for main characters, 5 (total 25) for lethal toons",
+    "source": "https://dandys-world-robloxhorror.fandom.com/wiki/Toons",
+    "scraped": "2026-05-19"
+  }
+}

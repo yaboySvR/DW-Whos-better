@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who's the ___? — Dandy's World Trivia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a10;
+    --surface: #13131f;
+    --card: #1a1a2c;
+    --border: #2e2e48;
+    --accent: #9b42c8;
+    --text: #f0eaff;
+    --text-muted: #6a6088;
+    --gold: #f4c23e;
+    --correct: #22c55e;
+    --correct-glow: rgba(34,197,94,0.4);
+    --wrong: #ef4444;
+    --wrong-glow: rgba(239,68,68,0.4);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  .hidden { display: none !important; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  /* Phone-frame container — TikTok-friendly vertical */
+  .phone {
+    width: 100%;
+    max-width: 420px;
+    min-height: 100vh;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+
+  .phone > * { position: relative; z-index: 1; }
+
+
+  /* ── QUESTION ──*/
+  .question-block {
+    padding: 0 20px 20px;
+    text-align: center;
+  }
+
+  .question-text {
+    font-family: 'Creepster', cursive;
+    font-size: clamp(1.8rem, 7vw, 2.6rem);
+    line-height: 1.15;
+    color: var(--text);
+    text-shadow: 0 0 30px rgba(155,66,200,0.5);
+  }
+
+  .question-text .highlight {
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(244,194,62,0.6);
+  }
+
+  /* ── CARDS GRID ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 0 16px 16px;
+    align-content: start;
+  }
+
+  .char-card {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.13s ease, border-color 0.13s ease, box-shadow 0.13s ease;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    -webkit-user-select: none;
+    aspect-ratio: 3/4;
+  }
+
+  .char-card:hover:not(.disabled) {
+    transform: scale(1.03);
+    border-color: var(--accent);
+    box-shadow: 0 6px 24px rgba(155,66,200,0.35);
+  }
+
+  .char-card.disabled { cursor: default; }
+
+  .char-card.correct {
+    border-color: var(--correct);
+    box-shadow: 0 0 0 3px var(--correct), 0 8px 32px var(--correct-glow);
+    animation: popIn 0.35s ease;
+  }
+
+  .char-card.wrong {
+    border-color: var(--wrong);
+    box-shadow: 0 0 0 3px var(--wrong), 0 8px 24px var(--wrong-glow);
+    animation: shake 0.35s ease;
+  }
+
+  @keyframes popIn {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.06); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20%     { transform: translateX(-7px); }
+    40%     { transform: translateX(7px); }
+    60%     { transform: translateX(-4px); }
+    80%     { transform: translateX(4px); }
+  }
+
+  .card-img-wrap {
+    flex: 1;
+    background: linear-gradient(160deg, #1f1f34 0%, #111120 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    padding: 8px 8px 0;
+  }
+
+  .card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom center;
+    transition: transform 0.2s ease;
+  }
+
+  .char-card:hover:not(.disabled) .card-img-wrap img {
+    transform: scale(1.06);
+  }
+
+  .card-footer {
+    padding: 8px 10px 10px;
+    background: var(--card);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .card-name {
+    font-size: 0.8rem;
+    font-weight: 900;
+    color: var(--text);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  .card-stars {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .card-stars.visible { display: flex; }
+
+  .stars-row {
+    display: flex;
+    gap: 1px;
+  }
+
+  .star { font-size: 0.75rem; }
+  .star.on  { color: var(--gold); }
+  .star.off { color: #252535; }
+
+  .stat-name {
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── NEXT BUTTON ── */
+  .next-btn {
+    display: none;
+    margin: 0 16px 24px;
+    background: linear-gradient(135deg, #9b42c8, #7c3aed);
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 1.05rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 16px;
+    padding: 16px;
+    width: calc(100% - 32px);
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(155,66,200,0.45);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+
+  .next-btn.show { display: block; animation: slideUp 0.25s ease; }
+
+  .next-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(155,66,200,0.6); }
+  .next-btn:active { transform: translateY(0); }
+
+  /* ── END SCREEN ── */
+  .end-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 40px 24px;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .end-screen.show { display: flex; }
+
+  .end-emoji {
+    font-size: 4rem;
+    line-height: 1;
+  }
+
+  .end-title {
+    font-family: 'Creepster', cursive;
+    font-size: 2.8rem;
+    color: var(--text);
+    text-shadow: 0 0 30px rgba(155,66,200,0.6);
+    letter-spacing: 2px;
+  }
+
+  .end-score {
+    font-family: 'Creepster', cursive;
+    font-size: 5rem;
+    color: var(--gold);
+    text-shadow: 0 0 24px rgba(244,194,62,0.6);
+    line-height: 1;
+  }
+
+  .end-sub {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+
+  .restart-btn {
+    margin-top: 12px;
+    background: linear-gradient(135deg, #9b42c8, #7c3aed);
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 16px;
+    padding: 16px 40px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(155,66,200,0.45);
+    transition: transform 0.12s ease;
+  }
+
+  .restart-btn:hover { transform: translateY(-2px); }
+</style>
+</head>
+<body>
+<div class="phone">
+
+
+  <!-- QUESTION -->
+  <div class="question-block">
+    <div class="question-text" id="questionText">Loading...</div>
+  </div>
+
+  <!-- CARDS -->
+  <div class="cards-grid" id="cardsGrid"></div>
+
+  <!-- NEXT -->
+  <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Next →</button>
+
+  <!-- END SCREEN -->
+  <div class="end-screen" id="endScreen">
+    <div class="end-emoji" id="endEmoji">🎉</div>
+    <div class="end-title">Final Score</div>
+    <div class="end-score" id="endScore">0 / 10</div>
+    <div class="end-sub" id="endSub">Not bad!</div>
+    <button class="restart-btn" onclick="restart()">Play Again</button>
+  </div>
+
+</div>
+
+<script>
+const CHARACTERS = [
+  { name:"Blot", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/8/8f/Blot_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:1,ms:4,st:5,sl:3,es:2} },
+  { name:"Boxten", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/b/b3/Boxten_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:3,st:3,sl:3,es:3} },
+  { name:"Brightney", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/9/9e/Brightney_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:3,st:4,sl:1,es:4} },
+  { name:"Brusha", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/1/1b/Brusha_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:4,ms:3,st:3,sl:2,es:3} },
+  { name:"Connie", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/3/30/Connie_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:2,ms:1,st:3,sl:5,es:4} },
+  { name:"Cosmo", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/9/90/Cosmo_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:1,ms:3,st:4,sl:4,es:3} },
+  { name:"Finn", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/4/44/Finn_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:4,ms:3,st:2,sl:3,es:3} },
+  { name:"Flutter", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/1/12/Flutter_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:2,ms:4,st:4,sl:3,es:2} },
+  { name:"Gigi", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/9/91/Gigi_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:5,ms:3,st:1,sl:3,es:3} },
+  { name:"Glisten", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/c/c5/Glisten_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:2,ms:3,st:3,sl:2,es:5} },
+  { name:"Goob", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/a/a9/Goob_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:4,st:4,sl:2,es:2} },
+  { name:"Looey", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/d/d0/Looey_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:4,ms:3,st:3,sl:2,es:3} },
+  { name:"Poppy", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/0a/Poppy_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:3,st:3,sl:3,es:3} },
+  { name:"Razzle & Dazzle", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/9/90/Razzle_%26_Dazzle_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:3,st:3,sl:3,es:3} },
+  { name:"Rodger", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/9/98/Rodger_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:2,st:3,sl:3,es:4} },
+  { name:"Scraps", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/5/50/Scraps_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:2,ms:2,st:5,sl:3,es:3} },
+  { name:"Shrimpo", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/a/a1/Shrimpo_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:1,ms:1,st:1,sl:1,es:1} },
+  { name:"Squirm", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/8/8c/Squirm_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:3,st:2,sl:2,es:5} },
+  { name:"Teagan", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/8/8f/Teagan_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:3,st:4,sl:2,es:3} },
+  { name:"Tisha", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/03/Tisha_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:4,ms:4,st:2,sl:3,es:2} },
+  { name:"Toodles", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/8/89/Toodles_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:3,st:3,sl:4,es:2} },
+  { name:"Yatta", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/7/75/Yatta_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:4,st:1,sl:2,es:5} },
+  { name:"Astro", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/9/92/Astro_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:2,ms:3,st:3,sl:5,es:3} },
+  { name:"Bassie", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/0c/Bassie_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:1,ms:5,st:4,sl:4,es:2} },
+  { name:"Bobette", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/f/f0/Bobette_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:4,ms:3,st:5,sl:2,es:2} },
+  { name:"Gourdy", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/c/c1/Gourdy_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:5,ms:4,st:1,sl:1,es:5} },
+  { name:"Pebble", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/8/8d/Pebble_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:5,st:4,sl:3,es:1} },
+  { name:"Shelly", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/a/a6/Shelly_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:5,ms:3,st:2,sl:3,es:3} },
+  { name:"Sprout", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/06/Sprout_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:2,ms:4,st:5,sl:3,es:2} },
+  { name:"Vee", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/5/53/Vee_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:4,ms:2,st:3,sl:2,es:5} },
+  { name:"Cocoa", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/5/51/Cocoa_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:4,st:2,sl:4,es:2} },
+  { name:"Eggson", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/5/54/Eggson_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:3,st:3,sl:3,es:3} },
+  { name:"Flyte", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/6/62/Flyte_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:2,ms:4,st:2,sl:3,es:4} },
+  { name:"Eclipse", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/5/55/Eclipse_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:4,st:3,sl:2,es:3} },
+  { name:"Ribecca", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/0f/Ribecca_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:3,st:3,sl:3,es:3} },
+  { name:"Soulvester", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/6/6d/Soulvester_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:5,ms:1,st:1,sl:3,es:5} },
+  { name:"Coal", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/02/Coal_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:2,ms:4,st:4,sl:3,es:2} },
+  { name:"Ginger", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/c/c6/Ginger_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:2,st:3,sl:4,es:3} },
+  { name:"Rudie", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/6/64/Rudie_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:3,ms:3,st:3,sl:3,es:3} },
+  { name:"Dandy", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/2/29/Dandy_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:5,ms:5,st:5,sl:5,es:5} },
+  { name:"Dyle", img:"https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/e/e2/Dyle_Render.png/revision/latest/scale-to-width-down/268", stats:{sc:5,ms:5,st:5,sl:5,es:5} },
+];
+
+const QUESTION_TYPES = [
+  { key:'ms', highest:true,  label:'Movement Speed',   question:"Who's the fastest runner?" },
+  { key:'ms', highest:false, label:'Movement Speed',   question:"Who's the slowest runner?" },
+  { key:'sc', highest:true,  label:'Skill Check',      question:"Who has the best Skill Check?" },
+  { key:'sc', highest:false, label:'Skill Check',      question:"Who has the worst Skill Check?" },
+  { key:'st', highest:true,  label:'Stamina',          question:"Who has the most Stamina?" },
+  { key:'st', highest:false, label:'Stamina',          question:"Who has the least Stamina?" },
+  { key:'sl', highest:true,  label:'Stealth',          question:"Who's the sneakiest?" },
+  { key:'sl', highest:false, label:'Stealth',          question:"Who's the easiest to detect?" },
+  { key:'es', highest:true,  label:'Extraction Speed', question:"Who's the fastest extractor?" },
+  { key:'es', highest:false, label:'Extraction Speed', question:"Who's the slowest extractor?" },
+];
+
+const MAX_QUESTIONS = 10;
+let score = 0;
+let questionNum = 0;
+let answered = false;
+let current = null;
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function genQuestion() {
+  for (let t = 0; t < 40; t++) {
+    const qt = QUESTION_TYPES[Math.floor(Math.random() * QUESTION_TYPES.length)];
+    const pool = shuffle(CHARACTERS).slice(0, 4);
+    const vals = pool.map(c => c.stats[qt.key]);
+    const target = qt.highest ? Math.max(...vals) : Math.min(...vals);
+    if (vals.filter(v => v === target).length === 1) {
+      return { qt, pool, correctIdx: vals.indexOf(target) };
+    }
+  }
+  // fallback
+  const qt = QUESTION_TYPES[Math.floor(Math.random() * QUESTION_TYPES.length)];
+  const pool = shuffle(CHARACTERS).slice(0, 4);
+  const vals = pool.map(c => c.stats[qt.key]);
+  const target = qt.highest ? Math.max(...vals) : Math.min(...vals);
+  return { qt, pool, correctIdx: vals.indexOf(target) };
+}
+
+function stars(n, max = 5) {
+  let s = '';
+  for (let i = 1; i <= max; i++)
+    s += `<span class="star ${i <= n ? 'on' : 'off'}">${i <= n ? '★' : '☆'}</span>`;
+  return s;
+}
+
+function highlight(q) {
+  return q.replace(
+    /(fastest runner|slowest runner|best Skill Check|worst Skill Check|most Stamina|least Stamina|sneakiest|easiest to detect|fastest extractor|slowest extractor)/,
+    '<span class="highlight">$1</span>'
+  );
+}
+
+function renderCards(q) {
+  const grid = document.getElementById('cardsGrid');
+  grid.innerHTML = '';
+  q.pool.forEach((char, i) => {
+    const card = document.createElement('div');
+    card.className = 'char-card';
+    card.id = `c${i}`;
+    card.innerHTML = `
+      <div class="card-img-wrap">
+        <img src="${char.img}" alt="${char.name}" loading="lazy">
+      </div>
+      <div class="card-footer">
+        <div class="card-name">${char.name}</div>
+        <div class="card-stars" id="s${i}">
+          <div class="stars-row">${stars(char.stats[q.qt.key])}</div>
+          <div class="stat-name">${q.qt.label}</div>
+        </div>
+      </div>
+    `;
+    card.addEventListener('click', () => pick(i));
+    grid.appendChild(card);
+  });
+}
+
+function pick(chosen) {
+  if (answered) return;
+  answered = true;
+
+  const correct = current.correctIdx;
+  const right = chosen === correct;
+  if (right) score++;
+
+  // reveal stars
+  for (let i = 0; i < 4; i++) {
+    document.getElementById(`s${i}`)?.classList.add('visible');
+    document.getElementById(`c${i}`)?.classList.add('disabled');
+  }
+
+  document.getElementById(`c${chosen}`).classList.add(right ? 'correct' : 'wrong');
+  if (!right) document.getElementById(`c${correct}`).classList.add('correct');
+
+
+  const isLast = questionNum >= MAX_QUESTIONS;
+  const btn = document.getElementById('nextBtn');
+  btn.textContent = isLast ? 'See Results →' : 'Next →';
+  btn.classList.add('show');
+}
+
+function nextQuestion() {
+  if (questionNum >= MAX_QUESTIONS) {
+    showEnd();
+    return;
+  }
+  questionNum++;
+  answered = false;
+
+  document.getElementById('nextBtn').classList.remove('show');
+
+  current = genQuestion();
+  document.getElementById('questionText').innerHTML = highlight(current.qt.question);
+  renderCards(current);
+}
+
+function showEnd() {
+  document.querySelector('.question-block').classList.add('hidden');
+  document.getElementById('cardsGrid').classList.add('hidden');
+  document.getElementById('nextBtn').classList.remove('show');
+
+  const pct = score / MAX_QUESTIONS;
+  const emoji = pct === 1 ? '🏆' : pct >= 0.7 ? '⭐' : pct >= 0.4 ? '🎮' : '💀';
+  const sub = pct === 1 ? 'Perfect score!' : pct >= 0.7 ? 'Great job!' : pct >= 0.4 ? 'Not bad!' : 'Keep practicing!';
+
+  document.getElementById('endEmoji').textContent = emoji;
+  document.getElementById('endScore').textContent = `${score} / 10`;
+  document.getElementById('endSub').textContent = sub;
+  document.getElementById('endScreen').classList.add('show');
+}
+
+function restart() {
+  score = 0;
+  questionNum = 0;
+  answered = false;
+
+  document.getElementById('endScreen').classList.remove('show');
+  document.querySelector('.question-block').classList.remove('hidden');
+  document.getElementById('cardsGrid').classList.remove('hidden');
+
+  nextQuestion();
+}
+
+// start
+nextQuestion();
+</script>
+</div>
+</body>
+</html>
