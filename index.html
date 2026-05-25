@@ -308,7 +308,7 @@
   <div class="end-screen" id="endScreen">
     <div class="end-emoji" id="endEmoji">🎉</div>
     <div class="end-title">Final Score</div>
-    <div class="end-score" id="endScore">0 / 10</div>
+    <div class="end-score" id="endScore">0 / 5</div>
     <div class="end-sub" id="endSub">Not bad!</div>
     <button class="restart-btn" onclick="restart()">Play Again</button>
   </div>
@@ -373,7 +373,7 @@ const QUESTION_TYPES = [
   { key:'es', highest:false, label:'Extraction Speed', question:"Who's the slowest extractor?" },
 ];
 
-const MAX_QUESTIONS = 10;
+const MAX_QUESTIONS = 5;
 let score = 0;
 let questionNum = 0;
 let answered = false;
@@ -493,7 +493,7 @@ function showEnd() {
   const sub = pct === 1 ? 'Perfect score!' : pct >= 0.7 ? 'Great job!' : pct >= 0.4 ? 'Not bad!' : 'Keep practicing!';
 
   document.getElementById('endEmoji').textContent = emoji;
-  document.getElementById('endScore').textContent = `${score} / 10`;
+  document.getElementById('endScore').textContent = `${score} / 5`;
   document.getElementById('endSub').textContent = sub;
   document.getElementById('endScreen').classList.add('show');
 }
